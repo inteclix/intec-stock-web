@@ -51,7 +51,8 @@ const Fournisseurs = {
   all: () => requests.get("/fournisseurs"),
   create: fournisseur => requests.post("/fournisseurs", { ...fournisseur }),
   delete: id => requests.delete("/fournisseurs/" + id),
-  update: fournisseur => requests.put("/fournisseurs/" + fournisseur.id, { ...fournisseur })
+  update: fournisseur =>
+    requests.put("/fournisseurs/" + fournisseur.id, { ...fournisseur })
 };
 
 const Achats = {

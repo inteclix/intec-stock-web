@@ -64,7 +64,6 @@ class All extends React.Component {
               >
                 <Text>Code: {achat.code}</Text>
                 <Text>Designation: {achat.designation}</Text>
-                <Text>Famille: {achat.Famille.name}</Text>
               </Card>
             ))}
           </View>

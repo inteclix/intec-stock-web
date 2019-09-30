@@ -1,9 +1,10 @@
-import { observable, action, decorate } from "mobx";
+import { observable, action, decorate, computed } from "mobx";
 
 import agent from "../agent";
 import toastStore from "./toastStore";
 
 class AchatStore {
+  autocompleteValue = "";
   selectedId = 0;
   achat = {
     id: 0,
@@ -15,6 +16,7 @@ class AchatStore {
     created_at: null,
     updated_at: null
   };
+
   achats = [];
   loading = false;
   message = {
@@ -22,6 +24,14 @@ class AchatStore {
     body: "",
     show: false
   };
+
+  get totalAchat() {
+    let total = 0;
+    for (let i = 0; i < this.achat.articles.length; i++) {
+      total += this.achat.articles[i].prix_achat * this.achat.articles[i].qte;
+    }
+    return total;
+  }
 
   hideMessage() {
     this.message = {
@@ -164,10 +174,12 @@ class AchatStore {
 }
 
 AchatStore = decorate(AchatStore, {
+  autocompleteValue: observable,
   selectedId: observable,
   achat: observable,
   achats: observable,
   loading: observable,
+  totalAchat: computed
 });
 
 export default new AchatStore();

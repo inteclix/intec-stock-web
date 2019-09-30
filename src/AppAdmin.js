@@ -24,6 +24,7 @@ class AppAdmin extends React.Component {
           <Route path={"/articles"} component={Articles} />
           <Route path={"/clients"} component={Clients} />
           <Route path={"/fournisseurs"} component={Fournisseurs} />
+          <Route path={"/achats"} component={Achats} />
           <ToastContainer />
         </View>
       </BrowserRouter>
